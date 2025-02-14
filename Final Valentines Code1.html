@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valentine's Surprise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #ffcccb;
+            padding: 50px;
+        }
+        h1 {
+            color: #d50000;
+            font-size: 3em;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            background-color: #ff3366;
+            color: white;
+            font-size: 1.5em;
+            padding: 15px 30px;
+            border: none;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        button:hover {
+            background-color: #ff6699;
+        }
+        #video {
+            display: none;
+            margin-top: 20px;
+            width: 80%;
+            height: auto;
+        }
+        #questionPage img, #confirmationPage img {
+            width: 80%;
+            max-height: 300px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="questionPage">
+        <h1>Are you ready for a surprise BAOBAO???</h1>
+        <img src="Cat flower.gif" alt="Valentine's Image">
+        <div class="buttons">
+            <button id="yesBtn" onclick="showVideo()">Yes</button>
+            <button id="noBtn" onclick="makeBigger()">No</button>
+        </div>
+    </div>
+
+    <div id="confirmationPage" style="display: none;">
+        <h1>Are you sure?</h1>
+        <img src="cat sure.jpeg" alt="Confirmation Image">
+        <div class="buttons">
+            <button id="confirmYesBtn" onclick="confirmYes()">Yes</button>
+            <button id="confirmNoBtn" onclick="makeBiggerConfirmation()">No</button>
+        </div>
+    </div>
+
+    <div id="videoHeader">
+        <p>Here is a video I edited by myself for you!!! VOLUME UP and PRESS PLAY</p>
+    </div>
+      
+    <video id="video" controls>
+        <source src="Final 2025 Valetines Day Edit.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <script>
+        function showVideo() {
+            // Hide the first question page
+            document.getElementById('questionPage').style.display = 'none';
+            // Show the confirmation page
+            document.getElementById('confirmationPage').style.display = 'block';
+        }
+
+        function makeBigger() {
+            var yesBtn = document.getElementById('yesBtn');
+            var currentSize = parseFloat(window.getComputedStyle(yesBtn).fontSize);
+            yesBtn.style.fontSize = (currentSize + 5) + "px";
+        }
+
+        function makeBiggerConfirmation() {
+            var confirmYesBtn = document.getElementById('confirmYesBtn');
+            var currentSize = parseFloat(window.getComputedStyle(confirmYesBtn).fontSize);
+            confirmYesBtn.style.fontSize = (currentSize + 5) + "px";
+        }
+
+        function confirmYes() {
+            // Hide confirmation page and show the video
+            document.getElementById('confirmationPage').style.display = 'none';
+            document.getElementById('video').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
